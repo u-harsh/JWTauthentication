@@ -30,7 +30,7 @@ public class JwtAuthFilter extends OncePerRequestFilter{
 		// TODO Auto-generated method stub
 		String authHeader = request.getHeader("Authorization");
 		
-		if (authHeader != null && authHeader.startsWith("Beater ")) {
+		if (authHeader != null && authHeader.startsWith("Bearer ")) {
 			String token = authHeader.substring(7);
 			String username = jwtService.extractUsername(token);
 			

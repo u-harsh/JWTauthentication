@@ -18,6 +18,9 @@ public class AuthController {
 	@PostMapping("/login")
 	public Map<String, String> login(@RequestBody Map<String, String> user){
 		
+		System.out.println("USERNAME RECEIVED = " + user.get("username"));
+	    System.out.println("PASSWORD RECEIVED = " + user.get("password"));
+		
 		if(user.get("username").equals("user") && user.get("password").equals("1234")) {
 			String token = jwtService.generateToken(user.get("username"));
 			return Map.of("token", token);
